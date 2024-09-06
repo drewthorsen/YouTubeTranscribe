@@ -41,7 +41,7 @@ def fetch_and_save_transcript(video_id, video_title):
     formatted_text = format_text(full_text)
 
     # Replace colons with underscores in the video title
-    safe_title = re.sub(r':', '_', video_title)
+    safe_title = re.sub(r'[<>:"/\\|?*]', '_', video_title)
 
     # Specify the path to the Downloads folder
     downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
